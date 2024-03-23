@@ -1,11 +1,11 @@
 # C++ Projektas
-![Imgur](https://imgur.com/U5QeuMR.png)
+![Imgur](https://imgur.com/TyNHcmc.png)
 ## Komanda: a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau
 ### Nariai:
 - Tadas Riksas
 - Arnas Šniokaitis
 
-![Imgur](https://imgur.com/U5QeuMR.png)
+![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
 ### Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą. Taip pat būtų galima sekti ir kitas veiklas. 
