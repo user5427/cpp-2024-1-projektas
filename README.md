@@ -1,5 +1,5 @@
 # C++ Projektas
-## Komanda
+## Komanda: a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau
 ### Nariai:
 - Tadas Riksas
 - Arnas Šniokaitis
