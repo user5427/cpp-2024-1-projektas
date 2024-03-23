@@ -1,27 +1,30 @@
 # C++ Projektas
 ## Komanda
-Nariai:
+### Nariai:
 - Tadas Riksas
 - Arnas Šniokaitis
 ## Laiko fiksavimo programa
-#### Programos tikslas:
+### Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą. Taip pat būtų galima sekti ir kitas veiklas. 
 
-#### Programos veikimo principas:
+### Programos veikimo principas:
 * vartotojas pasirenka veiklą
 * Naudojantis `start`, `pause` ir `stop` mygtukais nustato veiklos būseną.
 * Naudojantis `comment` sekcija apibudina, ką veikė.
 
-#### Programos funkcijos:
+### Programos funkcijos:
 Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 * `CSV`, `excel` formatais.
 * Grafikais ***(galimai bus neimplementuota dėl mažos komandos)***. 
 
-#### Naudojamos bibliotekos:
+### Naudojamos bibliotekos:
 * `SFML` - grafiniam interfeisui kurti - [website](https://www.sfml-dev.org/). 
+
+### Programos struktūra:
+![My Image Description](https://imgur.com/q7rYNTG)
 
 ### Programos demonstracija:
 
 
-## Darbo apimties ataskaita:
+## Darbo apimties ataskaitos
 Visos ataskaitos sudėtos į `Ataskaitos` katalogą.
