@@ -23,6 +23,12 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 ### Programos struktūra:
 ![Imgur](https://imgur.com/8Jd3c8N.png)
 
+### Programos vizija:
+Kaip galėtų atrodyti programos interfeisas jeigu turėtume didelę komandą ir daug laiko:
+![Imgur](https://imgur.com/kv7Vs5n.png)
+Deja, tikėtina, kad galėsime sukurti tik tokį interfeisą:
+![Imgur](https://imgur.com/5ERUZyN.png)
+
 ### Programos demonstracija:
 
 
