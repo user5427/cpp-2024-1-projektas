@@ -1,2 +1,5 @@
 1) proof of concept sukūrimas => 6 - 7 h. (reikėjo šitą darbą taip pat sukurti kompiuterinės grafikos dalyko užduočiai).
 2) readme.md failo sukūrimas => 1 h.
+3) papildomos diagramos sukūrimas => 1 h.
+4) readme.md failo formatavimas => 30 min.
+5) demonstracinio video sukūrimas => 3 h.
