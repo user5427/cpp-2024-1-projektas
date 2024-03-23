@@ -21,7 +21,7 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 * `SFML` - grafiniam interfeisui kurti - [website](https://www.sfml-dev.org/). 
 
 ### Programos struktūra:
-![Imgur](https://imgur.com/8Jd3c8N.png)
+![Imgur](https://imgur.com/1VFR1bb.png)
 
 ### Programos vizija:
 Kaip galėtų atrodyti programos interfeisas jeigu turėtume didelę komandą ir daug laiko:
@@ -32,7 +32,7 @@ Deja, tikėtina, kad galėsime sukurti tik tokį interfeisą:
 ### Programos veikimo pavyzdys:
 [![IMAGE ALT TEXT](https://imgur.com/f6U0fmw.png)](http://www.youtube.com/watch?v=FC6kq6OVsIQ "Video Title")
 
-### 
+
 
 
 ## Darbo apimties ataskaitos
