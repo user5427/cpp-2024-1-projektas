@@ -30,7 +30,7 @@ Deja, tikėtina, kad galėsime sukurti tik tokį interfeisą:
 ![Imgur](https://imgur.com/5ERUZyN.png)
 
 ### Programos veikimo pavyzdys:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FC6kq6OVsIQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![IMAGE ALT TEXT](https://imgur.com/f6U0fmw.png)](http://www.youtube.com/watch?v=FC6kq6OVsIQ "Video Title")
 
 ### 
 
