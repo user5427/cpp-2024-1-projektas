@@ -21,7 +21,7 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 * `SFML` - grafiniam interfeisui kurti - [website](https://www.sfml-dev.org/). 
 
 ### Programos struktūra:
-![My Image Description](https://imgur.com/q7rYNTG)
+![Imgur](https://imgur.com/8Jd3c8N.png)
 
 ### Programos demonstracija:
 
