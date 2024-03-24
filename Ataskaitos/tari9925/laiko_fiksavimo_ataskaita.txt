@@ -3,3 +3,4 @@
 3) papildomos diagramos sukūrimas => 1 h.
 4) readme.md failo formatavimas => 30 min.
 5) demonstracinio video sukūrimas => 3 h.
+6) flowchart sukūrimas => 30 min.
