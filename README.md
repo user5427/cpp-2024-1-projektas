@@ -1,4 +1,5 @@
 # C++ Projektas
+<!--![Imgur](https://imgur.com/TseEA4k.png)-->
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Komanda: a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau
 ### Nariai:
@@ -24,7 +25,10 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 * `SFML` - grafiniam interfeisui kurti - [website](https://www.sfml-dev.org/). 
 
 ### Programos struktūra:
-![Imgur](https://imgur.com/1VFR1bb.png)
+<img src="https://imgur.com/1VFR1bb.png" width="500">
+
+## Programos flowchart:
+![Imgur](https://imgur.com/qqfgktV.png)
 
 ### Programos vizija:
 Kaip galėtų atrodyti programos interfeisas jeigu turėtume didelę komandą ir daug laiko:
