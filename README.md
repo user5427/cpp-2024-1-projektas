@@ -1,10 +1,10 @@
 # C++ Projektas
 <!--![Imgur](https://imgur.com/TseEA4k.png)-->
 ![Imgur](https://imgur.com/TyNHcmc.png)
-## Komanda: a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau
+## Komanda: <!--a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau-->
 ### Nariai:
 - Tadas Riksas
-- Arnas Šniokaitis
+<!--- Arnas Šniokaitis-->
 
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
