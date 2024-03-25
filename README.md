@@ -9,7 +9,7 @@
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
 ### Programos tikslas:
-Tai būtų tokia programa, su kuria galima sekti PSP veiklą. Taip pat būtų galima sekti ir kitas veiklas. 
+Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, negu susirašinėjant visus įvykius į word/excel dokumentą. Taip pat būtų galima sekti ir kitas veiklas, nesusiejusias su PSP, bet kurios reikalauja laiko fiksavimo. 
 
 ### Programos veikimo principas:
 * vartotojas pasirenka veiklą
@@ -21,13 +21,21 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 * `CSV`, `excel` formatais.
 * Grafikais ***(galimai bus neimplementuota dėl mažos komandos)***. 
 
-### Naudojamos bibliotekos:
-* `SFML` - grafiniam interfeisui kurti - [website](https://www.sfml-dev.org/). 
-
 ### Programos struktūra:
 <img src="https://imgur.com/1VFR1bb.png" width="800">
 
-### Programos flowchart:
+#### Frontend:
+* Valdys įvestį, duomenų atvaizdavimą ir kitus interfeiso elementus.
+
+#### Backend:
+* Valdys duomenų saugojimą, apdorojimą ir kitus veiksmus, kurie nėra susiję su interfeisu.
+* Pagrindinės funkcijos yra `startEvent`, `pauseEvent`, `stopEvent`, `comment`.
+
+
+#### Naudojamos bibliotekos:
+* `SFML` - grafiniam interfeisui kurti - [website](https://www.sfml-dev.org/).
+
+#### Programos flowchart:
 ![Imgur](https://imgur.com/qqfgktV.png)
 
 ### Programos vizija:
