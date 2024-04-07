@@ -9,7 +9,10 @@
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
 ### Programos tikslas:
-Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, negu susirašinėjant visus įvykius į word/excel dokumentą. Taip pat būtų galima sekti ir kitas veiklas, nesusiejusias su PSP, bet kurios reikalauja laiko fiksavimo. 
+Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, 
+negu susirašinėjant visus įvykius į word/excel dokumentą. Taip pat būtų 
+galima sekti ir kitas veiklas, nesusiejusias su PSP, bet kurios reikalauja 
+laiko fiksavimo. 
 
 ### Programos veikimo principas:
 * vartotojas pasirenka veiklą
@@ -36,7 +39,8 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 * `SFML` - grafiniam interfeisui kurti - [website](https://www.sfml-dev.org/).
 
 #### Programos flowchart:
-![Imgur](https://imgur.com/qqfgktV.png)
+
+![Imgur](https://imgur.com/iYcAlUn.png)
 
 ### Programos vizija:
 Kaip galėtų atrodyti programos interfeisas jeigu turėtume didelę komandą ir daug laiko:
