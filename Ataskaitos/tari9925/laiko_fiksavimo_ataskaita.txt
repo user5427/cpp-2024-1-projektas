@@ -4,3 +4,4 @@
 4) readme.md failo formatavimas => 30 min.
 5) demonstracinio video sukūrimas => ~3 h.
 6) flowchart sukūrimas => 30 min.
+7) mini pavyzdukas konsolėje => 15 min.
