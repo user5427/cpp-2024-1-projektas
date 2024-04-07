@@ -1,0 +1,28 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[lithuanian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+%opening
+\title{Arno Šniokaičio ir Tado Rikso C++ projekto užduoties aprašas}
+\author{Arnas Šniokaitis}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Programos aprašas, veikimo principas, įgyvendinta veikla.
+\end{abstract}
+
+\section{Tikslas}
+Sukurti programą, kuri per grafinę sąsają leis fikstuoti, peržiūtėti, bei išsaugoti programų sistemų projektavimo laiko fiksavimo formą įvairiais failų plėtiniais. Programa taip pat turės galimybes sekti kitas veiklas, tačiau pagrinde bus pritaikyta PSP fiksavimui.
+
+\section{Techninė informacija}
+Nuolat atnaujinama ir tiksliausia techninė informacija yra randama \href{https://github.com/user5427/cpp-2024-1-projektas}{čia} README faile.
+\section{Atlikta / įgyvendinta}
+\begin{enumerate}
+ \item ø
+\end{enumerate}
+
+
+\end{document}
