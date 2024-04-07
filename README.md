@@ -40,7 +40,10 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 
 #### Programos flowchart:
 
-![Imgur](https://imgur.com/iYcAlUn.png)
+![Imgur](https://imgur.com/YKMPDOi.png)
+
+#### UML užduočių diagrama:
+![Imgur](https://imgur.com/ZPYOGKO.png)
 
 ### Programos vizija:
 Kaip galėtų atrodyti programos interfeisas jeigu turėtume didelę komandą ir daug laiko:
