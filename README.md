@@ -43,7 +43,7 @@ Visą surinktą informaciją būtų galima atvaiduoti keliais būdais:
 ![Imgur](https://imgur.com/YKMPDOi.png)
 
 #### UML užduočių diagrama:
-![Imgur](https://imgur.com/ZPYOGKO.png)
+![Imgur](https://imgur.com/EMBjkiE.png)
 
 ### Programos vizija:
 Kaip galėtų atrodyti programos interfeisas jeigu turėtume didelę komandą ir daug laiko:
@@ -54,7 +54,8 @@ Deja, tikėtina, kad galėsime sukurti tik tokį interfeisą:
 ### Programos veikimo pavyzdys:
 [![IMAGE ALT TEXT](https://imgur.com/f6U0fmw.png)](http://www.youtube.com/watch?v=FC6kq6OVsIQ "Video Title")
 
-
+### Pavyzdys konsolėje:
+![Imgur](https://imgur.com/SO93aFm.png)
 
 
 ## Darbo apimties ataskaitos
