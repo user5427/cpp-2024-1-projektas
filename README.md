@@ -3,7 +3,7 @@
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Komanda: a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau
 ### Nariai:
-- Tadas Riksas
+- Tadas Riksas [user5427](https://github.com/user5427)
 - Arnas Šniokaitis
 
 ![Imgur](https://imgur.com/TyNHcmc.png)
