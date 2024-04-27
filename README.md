@@ -59,4 +59,4 @@ Deja, tikėtina, kad galėsime sukurti tik tokį interfeisą:
 
 
 ## Darbo apimties ataskaitos
-Visos ataskaitos sudėtos į `Ataskaitos` katalogą.
+Visos ataskaitos sudėtos į [Ataskaitos](Ataskaitos) katalogą.
