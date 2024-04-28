@@ -1,10 +1,10 @@
 # C++ Projektas
 <!--![Imgur](https://imgur.com/TseEA4k.png)-->
 ![Imgur](https://imgur.com/TyNHcmc.png)
-## Komanda: <!--a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau-->
+## Komanda: a̶͗͆i̷̍͝ ̸͑͛ń̸̂e̷̿̎z̴̿̎ȉ̴nau
 ### Nariai:
-- Tadas Riksas
-<!--- Arnas Šniokaitis-->
+- Tadas Riksas [user5427](https://github.com/user5427)
+- Arnas Šniokaitis
 
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
@@ -59,4 +59,4 @@ Deja, tikėtina, kad galėsime sukurti tik tokį interfeisą:
 
 
 ## Darbo apimties ataskaitos
-Visos ataskaitos sudėtos į `Ataskaitos` katalogą.
+Visos ataskaitos sudėtos į [Ataskaitos](Ataskaitos) katalogą.
