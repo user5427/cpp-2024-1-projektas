@@ -7,6 +7,7 @@
 
 
 #include <string>
+#include "Data.h"
 
 class TimeTracker {
 private:
@@ -23,6 +24,7 @@ public:
     int endEntry(long ETime);
     int closeFile();
     int reopenFile();
+    std::vector<Data> getData();
 };
 
 

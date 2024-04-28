@@ -40,8 +40,13 @@ int TimeTracker::addEntry(std::string Name, long BTime, long ETime) {
 }
 
 int TimeTracker::initFileio(std::string fileName) {
+    std::string ftype = ".csv";
+    if(fileName.compare(fileName.size() - ftype.size(), ftype.size(), ftype)!=0){
+        return 0;
+    }
     ptr -> file = FileIO(fileName);
     ptr->openedFile = true;
+    return 1;
 }
 
 int TimeTracker::writeToFile() {
@@ -115,4 +120,8 @@ int TimeTracker::reopenFile() {
     }
     ptr->file.open();
     return 1;
+}
+
+std::vector<Data> TimeTracker::getData() {
+    return ptr->data;
 }
