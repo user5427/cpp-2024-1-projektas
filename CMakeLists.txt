@@ -18,7 +18,10 @@ add_executable(cpp_2024_1_projektas main.cpp
         frontend/DropBox.cpp
         frontend/DropBox.h
         frontend/Slider.cpp
-        frontend/Slider.h)
+        frontend/Slider.h
+        frontend/CommentBox.cpp
+        frontend/CommentBox.h
+        frontend/AbstractUIElement.h)
 
 include_directories(headers /usr/include c:/SFML/include)
 

@@ -5,6 +5,8 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include "DropBox.h"
 #include "Button.h"
 #include "Slider.h"
@@ -29,8 +31,8 @@ struct DropBox::DropBoxImpl {
         this->y = y;
         this->name = name;
 
-        expandButton = new Button("res/expand.png", "res/expandHighlighted.png", "res/expand.png", 320+x, 14+y);
-        minimizeButton = new Button("res/minimize.png", "res/minimizeHighlighted.png", "res/minimize.png", 320+x, 14+y);
+        expandButton = new Button("res/expand.png", "res/expandHighlighted.png", "res/expand.png", 320+x, 14+y+27);
+        minimizeButton = new Button("res/minimize.png", "res/minimizeHighlighted.png", "res/minimize.png", 320+x, 14+y+27);
         minimizeButton->show(false);
 
         dropBoxTexture.loadFromFile("res/dropBox.png");
@@ -51,7 +53,7 @@ struct DropBox::DropBoxImpl {
 
         sf::Sprite image;
         image.setTexture(dropBoxTexture);
-        image.setPosition(x, y);
+        image.setPosition(x, y+27);
         window.draw(image);
         if (expanded) {
             sf::Sprite image2;
@@ -64,11 +66,11 @@ struct DropBox::DropBoxImpl {
         minimizeButton->draw(window);
 
 
-//        sf::Font font;
-//        font.loadFromFile("arial.ttf");
-//        sf::Text text(name, font, 12);
-//        text.setPosition(x + 5, y + 5);
-//        window.draw(text);
+        sf::Font font;
+        font.loadFromFile("res/fonts/inter/Inter-Regular.ttf");
+        sf::Text text(name, font, 22);
+        text.setPosition(x + 5, y);
+        window.draw(text);
     }
 
     void update(sf::RenderWindow& window) {

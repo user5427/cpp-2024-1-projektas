@@ -27,7 +27,7 @@ struct MyWindow::WindowImpl {
 
         startButton = new Button("res/startInactive.png", "res/startHighlight.png", "res/start.png", 585, 425);
         pauseButton = new Button("res/pauseInactive.png", "res/pauseHighlight.png", "res/pause.png", 643, 425);
-        dropBox = new DropBox(33, 115, "DropBox");
+        dropBox = new DropBox(33, 115, "Events:");
     }
 
     ~WindowImpl() {
