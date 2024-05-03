@@ -9,19 +9,20 @@
 #include <vector>
 #include <string>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "AbstractUIElement.h"
 
-class DropBox {
+class DropBox : public AbstractUIElement {
 public:
     DropBox(int x, int y, std::string name);
     ~DropBox();
-    void draw(sf::RenderWindow& window);
-    void update(sf::RenderWindow& window);
-    void handleEvents(sf::RenderWindow& window, sf::Event event);
-    void show(bool showDropBox);
-    void disable(bool disableDropBox);
+    void draw(sf::RenderWindow& window) override;
+    void update(sf::RenderWindow& window) override;
+    void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    void show(bool showDropBox) override;
+    void disable(bool disableDropBox) override;
     void setItems(std::vector<std::string> items);
     std::string getSelectedItem();
-    void reset();
+    void reset() override;
 private:
     class DropBoxImpl;
     DropBoxImpl* ptr;

@@ -7,22 +7,23 @@
 
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "AbstractUIElement.h"
 
-class Slider {
+class Slider : public AbstractUIElement {
 public:
     Slider(int x, int y, float length, bool vertical);
     ~Slider();
-    void draw(sf::RenderWindow& window);
-    void update(sf::RenderWindow& window);
-    void handleEvents(sf::RenderWindow& window, sf::Event event);
-    void show(bool showSlider);
-    void disable(bool disableSlider);
+    void draw(sf::RenderWindow& window) override;
+    void update(sf::RenderWindow& window) override;
+    void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    void show(bool showSlider) override;
+    void disable(bool disableSlider) override;
     float getValue();
     /**
      * Reset slider to initial state
      * Set as not active
      */
-    void reset();
+    void reset() override;
 private:
     struct SliderImpl;
     SliderImpl* ptr;

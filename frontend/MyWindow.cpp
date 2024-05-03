@@ -28,6 +28,7 @@ struct MyWindow::WindowImpl {
         startButton = new Button("res/startInactive.png", "res/startHighlight.png", "res/start.png", 585, 425);
         pauseButton = new Button("res/pauseInactive.png", "res/pauseHighlight.png", "res/pause.png", 643, 425);
         dropBox = new DropBox(33, 115, "Events:");
+        dropBox->setItems(std::vector<std::string>{"Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6", "Event 7", "Event 8", "Event 9", "Event 10"});
     }
 
     ~WindowImpl() {

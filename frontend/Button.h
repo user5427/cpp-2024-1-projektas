@@ -7,18 +7,19 @@
 
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "AbstractUIElement.h"
 
-class Button {
+class Button : public AbstractUIElement{
 public:
     Button(std::string inactive, std::string highlight, std::string active, int x, int y);
     ~Button();
-    void draw(sf::RenderWindow& window);
-    void update(sf::RenderWindow& window);
-    void handleEvents(sf::RenderWindow& window, sf::Event event);
+    void draw(sf::RenderWindow& window) override;
+    void update(sf::RenderWindow& window) override;
+    void handleEvents(sf::RenderWindow& window, sf::Event event) override;
     bool isPressed();
-    void reset();
-    void show(bool showButton);
-    void disable(bool disableButton);
+    void reset() override;
+    void show(bool showButton) override;
+    void disable(bool disableButton) override;
 
 private:
     class ButtonImpl;
