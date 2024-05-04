@@ -4,13 +4,15 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Graphics/RectangleShape.hpp"
 #include "frontend/MyWindow.h"
+#include "frontend/SimulatedTimeTracker.h"
 
 int main() {
     sf::Clock clock;
     int updatesPerSecond = 60;
     long long int timeSinceLastUpdate = 0;
     long long int timePerUpdate = 1000000 / updatesPerSecond;
-    MyWindow *window = new MyWindow();
+    SimulatedTimeTracker *timeTracker = new SimulatedTimeTracker();
+    MyWindow *window = new MyWindow(timeTracker);
     while (window->getRenderWindow()->isOpen()){
         if (clock.getElapsedTime().asMicroseconds() - timeSinceLastUpdate > timePerUpdate){
             timeSinceLastUpdate += timePerUpdate;

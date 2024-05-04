@@ -13,14 +13,15 @@ struct Button::ButtonImpl {
     bool pressed = false;
     bool highlighted = false;
     int x, y, width, height;
-    sf::Texture inactiveTexture, highlightedTexture, activeTexture;
+    sf::Texture inactiveTexture, highlightedTexture, activeTexture, pressedTexture;
 
-    ButtonImpl(std::string inactive, std::string highlight, std::string active, int x, int y) {
+    ButtonImpl(std::string inactive, std::string highlight, std::string active, std::string pressed, int x, int y) {
         this->x = x;
         this->y = y;
         inactiveTexture.loadFromFile(inactive);
         highlightedTexture.loadFromFile(highlight);
         activeTexture.loadFromFile(active);
+        pressedTexture.loadFromFile(pressed);
     }
 
     ~ButtonImpl() {
@@ -34,9 +35,11 @@ struct Button::ButtonImpl {
 
         sf::Sprite sprite;
         if (pressed){
-            sprite.setTexture(activeTexture);
+            sprite.setTexture(pressedTexture);
         } else if (highlighted) {
             sprite.setTexture(highlightedTexture);
+        } else if (!disableButton) {
+            sprite.setTexture(activeTexture);
         } else {
             sprite.setTexture(inactiveTexture);
         }
@@ -88,7 +91,7 @@ struct Button::ButtonImpl {
 
 };
 
-Button::Button(std::string inactive, std::string highlight, std::string active, int x, int y) : ptr(new ButtonImpl(inactive, highlight, active, x, y)) {
+Button::Button(std::string inactive, std::string highlight, std::string active, std::string pressed, int x, int y) : ptr(new ButtonImpl(inactive, highlight, active, pressed, x, y)) {
 }
 
 Button::~Button() {

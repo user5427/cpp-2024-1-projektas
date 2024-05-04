@@ -6,11 +6,13 @@
 #define CPP_2024_1_PROJEKTAS_MYWINDOW_H
 #include "SFML/Graphics.hpp"
 #include "SFML/Graphics/RectangleShape.hpp"
+#include "../backend/TimeTracker.h"
+#include "SimulatedTimeTracker.h"
 
 class MyWindow {
 public:
 
-    MyWindow();
+    MyWindow(SimulatedTimeTracker *pTracker);
     ~MyWindow();
     void draw();
     void update();

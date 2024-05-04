@@ -25,6 +25,13 @@ public:
     int closeFile();
     int reopenFile();
     std::vector<Data> getData();
+    // gal reiktu ir paprasto beginEntry tik su Name parametru? TODO
+    // is github "Pagrindinės funkcijos yra startEvent, pauseEvent, stopEvent, comment.", reikia igyvendinti/pervardinti sias funkcijas? TODO
+    // reikia galimybes gauti visus galimus veiksmus TODO
+    // reikia galimybes gauti visus ivykius pagal veiksma TODO
+    // ai ir nesikompiliuos nes cmakelist.txt isemiau is kompiliavimo saraso
+    // dar reikia igyvendinti visus reikalavimus is pdf failo TODO
+    // is SimulatedTimeTracker igyvendinti metodus TODO
 };
 
 

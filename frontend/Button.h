@@ -11,7 +11,7 @@
 
 class Button : public AbstractUIElement{
 public:
-    Button(std::string inactive, std::string highlight, std::string active, int x, int y);
+    Button(std::string inactive, std::string highlight, std::string active, std::string pressed, int x, int y);
     ~Button();
     void draw(sf::RenderWindow& window) override;
     void update(sf::RenderWindow& window) override;

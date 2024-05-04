@@ -21,7 +21,10 @@ add_executable(cpp_2024_1_projektas main.cpp
         frontend/Slider.h
         frontend/CommentBox.cpp
         frontend/CommentBox.h
-        frontend/AbstractUIElement.h)
+        frontend/AbstractUIElement.h
+        frontend/SimulatedTimeTracker.h
+        frontend/Clock.cpp
+        frontend/Clock.h)
 
 include_directories(headers /usr/include c:/SFML/include)
 

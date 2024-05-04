@@ -47,8 +47,8 @@ struct DropBox::DropBoxImpl {
         this->y = y;
         this->name = name;
 
-        expandButton = new Button("res/expand.png", "res/expandHighlighted.png", "res/expand.png", 320+x, 14+y+27);
-        minimizeButton = new Button("res/minimize.png", "res/minimizeHighlighted.png", "res/minimize.png", 320+x, 14+y+27);
+        expandButton = new Button("res/expand.png", "res/expandHighlighted.png", "res/expand.png", "res/expand.png", 320+x, 14+y+27);
+        minimizeButton = new Button("res/minimize.png", "res/minimizeHighlighted.png", "res/minimize.png", "res/minimize.png", 320+x, 14+y+27);
         minimizeButton->show(false);
 
         dropBoxTexture.loadFromFile("res/dropBox.png");
