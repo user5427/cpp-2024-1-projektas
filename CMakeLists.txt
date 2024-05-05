@@ -26,9 +26,17 @@ add_executable(cpp_2024_1_projektas main.cpp
         frontend/Clock.cpp
         frontend/Clock.h
         res/logo.c
-        frontend/Transperent.h
+        frontend/Transparent.h
         frontend/WindowBar.cpp
-        frontend/WindowBar.h)
+        frontend/WindowBar.h
+        frontend/EventWindow.cpp
+        frontend/EventWindow.h
+        backend/Data.cpp
+        frontend/dataPoint.cpp
+        frontend/dataPoint.h
+        frontend/dataPoint.h
+        frontend/Transparent.cpp
+)
 
 include_directories(headers /usr/include c:/SFML/include)
 

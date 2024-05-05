@@ -10,8 +10,9 @@
 #include "SimulatedTimeTracker.h"
 #include "Clock.h"
 #include "../res/logo.c"
-#include "Transperent.h"
+#include "Transparent.h"
 #include "WindowBar.h"
+#include "EventWindow.h"
 
 struct MyWindow::WindowImpl {
     sf::RenderWindow *renderWindow;
@@ -35,6 +36,8 @@ struct MyWindow::WindowImpl {
 
     WindowBar *windowBar;
     Button *eventButton;
+
+    EventWindow *eventWindow = nullptr;
 
     WindowImpl(SimulatedTimeTracker *pTracker) {
         simulatedTimeTracker = pTracker;
@@ -67,10 +70,12 @@ struct MyWindow::WindowImpl {
         clock = new Clock(473, 26+28);
         timeAndDateTexture.loadFromFile("res/timeAndDateDisplay.png");
 
-        windowBar = new WindowBar(0, 0, *renderWindow);
+        windowBar = new WindowBar(0, 0, *renderWindow, 773, "res/windowBar.png");
 
         eventButton = new Button("res/eventInactive.png", "res/eventHighlight.png", "res/eventActive.png", "res/eventPressed.png",
                                  798, 43);
+
+        eventWindow = new EventWindow();
     }
 
     ~WindowImpl() {
@@ -185,7 +190,7 @@ struct MyWindow::WindowImpl {
 
         long time;
         if (simulatedTimeTracker->isThereEventStarted())
-            time = simulatedTimeTracker->getSimulatedTime();
+            time = simulatedTimeTracker->getCurrentEventDuration();
         else {
             time = ltm->tm_hour * 3600 + ltm->tm_min * 60 + ltm->tm_sec;
         }
@@ -197,11 +202,46 @@ struct MyWindow::WindowImpl {
 
         if (windowBar->isClosePressed()) {
             renderWindow->close();
+            eventWindow->close();
         }
 
         if (windowBar->isCollapsePressed()) {
             windowBar->reset();
             bool screwLinux = setMinimized(renderWindow->getSystemHandle()); //FIXME OS specific
+        }
+
+        if (eventButton->isPressed() && !eventWindow->isOpen()) {
+            eventWindow->open();
+            std::vector<dataPoint> data;
+            dataPoint dp("Event", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment");
+            data.push_back(dp);
+            dataPoint dp1("Event1", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment1");
+            data.push_back(dp1);
+            dataPoint dp2("Event2", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment2");
+            data.push_back(dp2);
+            dataPoint dp3("Event3", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment3");
+            data.push_back(dp3);
+            dataPoint dp4("Event4", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment4");
+            data.push_back(dp4);
+            dataPoint dp5("Event5", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment5");
+            data.push_back(dp5);
+            dataPoint dp6("Event6", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment6");
+            data.push_back(dp6);
+            dataPoint dp7("Event7", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment7");
+            data.push_back(dp7);
+            dataPoint dp8("Event8", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment8");
+            data.push_back(dp8);
+            dataPoint dp9("Event9", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment9");
+            data.push_back(dp9);
+            dataPoint dp10("Event10", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment10");
+            data.push_back(dp10);
+            dataPoint dp11("Event11", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment11");
+            data.push_back(dp11);
+            eventWindow->setData(data);
+            eventButton->reset();
+        } else if (eventButton->isPressed()) {
+            eventWindow->close();
+            eventButton->reset();
         }
     }
 

@@ -32,6 +32,7 @@ public:
     // ai ir nesikompiliuos nes cmakelist.txt isemiau is kompiliavimo saraso
     // dar reikia igyvendinti visus reikalavimus is pdf failo TODO
     // is SimulatedTimeTracker igyvendinti metodus TODO
+    // std::chrono::system_clock::time_point begin; TODO long labai nepatogus
 };
 
 

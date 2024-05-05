@@ -1,16 +1,15 @@
 //
-// Created by topto on 2024-05-04.
+// Created by topto on 2024-05-05.
 //
 
-#ifndef CPP_2024_1_PROJEKTAS_TRANSPERENT_H
-#define CPP_2024_1_PROJEKTAS_TRANSPERENT_H
+
+#include "Transparent.h"
 
 #include <SFML/Graphics/Image.hpp>
 #include <SFML/Window/WindowHandle.hpp>
 
 #if defined (SFML_SYSTEM_WINDOWS)
 #include <windows.h>
-
 bool setShape(HWND hWnd, const sf::Image& image)
 {
     const sf::Uint8* pixelData = image.getPixelsPtr();
@@ -188,6 +187,3 @@ bool setMinimized(sf::WindowHandle handle)
     return false;
 }
 #endif
-
-
-#endif //CPP_2024_1_PROJEKTAS_TRANSPERENT_H

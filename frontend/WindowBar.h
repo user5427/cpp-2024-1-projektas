@@ -11,7 +11,7 @@
 
 class WindowBar : AbstractUIElement {
 public:
-    WindowBar(int x, int y, sf::RenderWindow& window);
+    WindowBar(int x, int y, sf::RenderWindow& window, int buttonStart, std::string windowBar);
     ~WindowBar();
     void draw(sf::RenderWindow& window) override;
     void update(sf::RenderWindow& window) override;

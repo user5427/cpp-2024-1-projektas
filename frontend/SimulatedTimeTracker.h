@@ -26,7 +26,8 @@ public:
         return "activeEvent";
     }
 
-    long getSimulatedTime() {
+    // Returns the duration of the current event in seconds
+    long getCurrentEventDuration() {
         return 485181;
     }
 };

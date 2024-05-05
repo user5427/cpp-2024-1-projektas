@@ -136,7 +136,7 @@ struct DropBox::DropBoxImpl {
                     sf::Mouse::getPosition(window).y > displayPoint.y && sf::Mouse::getPosition(window).y < displayPoint.y + 24){
                     displayPoint.active = true;
                 }
-                displayPoints.push_back(displayPoint);
+                displayPoints   .push_back(displayPoint);
                 j++;
                 if (j > 4)
                     break;

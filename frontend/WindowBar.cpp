@@ -26,15 +26,15 @@ struct WindowBar::BarImpl {
     Button *closeButton;
     Button *collapseButton;
 
-    BarImpl(int x, int y, sf::RenderWindow &window) {
+    BarImpl(int x, int y, sf::RenderWindow &window, int buttonStart, std::string windowBar) {
         this->x = x;
         this->y = y;
-        windowBarTexture.loadFromFile("res/windowBar.png");
+        windowBarTexture.loadFromFile(windowBar);
         closeButton = new Button("res/close.png", "res/closeHighlight.png", "res/close.png", "res/close.png",
-                                 823 + x, 6 + y);
+                                 buttonStart + 50 + x, 6 + y);
 
         collapseButton = new Button("res/colapse.png", "res/colapseHighlight.png", "res/colapse.png", "res/colapse.png",
-                                    773 + x, 7 + y);
+                                    buttonStart + x, 7 + y);
         newWindowX = window.getPosition().x;
         newWindowY = window.getPosition().y;
     }
@@ -130,8 +130,8 @@ struct WindowBar::BarImpl {
 
 };
 
-WindowBar::WindowBar(int x, int y, sf::RenderWindow &window) {
-    pimpl = new BarImpl(x, y, window);
+WindowBar::WindowBar(int x, int y, sf::RenderWindow &window, int buttonStart, std::string windowBar) {
+    pimpl = new BarImpl(x, y, window, buttonStart, windowBar);
 }
 
 WindowBar::~WindowBar() {
