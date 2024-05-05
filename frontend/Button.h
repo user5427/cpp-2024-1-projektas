@@ -20,6 +20,7 @@ public:
     void reset() override;
     void show(bool showButton) override;
     void disable(bool disableButton) override;
+    bool isHighlighted();
 
 private:
     class ButtonImpl;

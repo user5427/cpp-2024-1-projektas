@@ -9,6 +9,9 @@
 #include "DropBox.h"
 #include "SimulatedTimeTracker.h"
 #include "Clock.h"
+#include "../res/logo.c"
+#include "Transperent.h"
+#include "WindowBar.h"
 
 struct MyWindow::WindowImpl {
     sf::RenderWindow *renderWindow;
@@ -30,27 +33,44 @@ struct MyWindow::WindowImpl {
     time_t now = time(0);
     tm *ltm = localtime(&now);
 
+    WindowBar *windowBar;
+    Button *eventButton;
+
     WindowImpl(SimulatedTimeTracker *pTracker) {
         simulatedTimeTracker = pTracker;
-        renderWindow = new sf::RenderWindow(sf::VideoMode(863, 502), "PSP tracker");
-        if (!windowTexture.loadFromFile("res/initialPage.png")) {
+        renderWindow = new sf::RenderWindow(sf::VideoMode(863, 530), "PSP tracker", sf::Style::None);
+        renderWindow->setIcon(gimp_image.width, gimp_image.height, gimp_image.pixel_data);
+        renderWindow->setFramerateLimit(60);
+
+
+
+        sf::Image backgroundImage;
+        if (!windowTexture.loadFromFile("res/initialPage.png") || !backgroundImage.loadFromFile("res/initialPage.png")) {
             std::cout << "Could not load page windowTexture" << std::endl;
             throw std::runtime_error("Could not load page windowTexture");
         }
 
 
+        bool setShapeS = setShape(renderWindow->getSystemHandle(), backgroundImage);//FIXME OS specific
+        bool setTransparencyS = setTransparency(renderWindow->getSystemHandle(), 255);//FIXME OS specific
+
         startButton = new Button("res/startInactive.png", "res/startHighlight.png", "res/start.png",
-                                 "res/pressedStart.png", 556, 425);
+                                 "res/pressedStart.png", 556, 425+28);
         pauseButton = new Button("res/pauseInactive.png", "res/pauseHighlight.png", "res/pauseActive.png",
-                                 "res/pressedPause.png", 614, 425);
+                                 "res/pressedPause.png", 614, 425+28);
         stopButton = new Button("res/stopInactive.png", "res/stopHighlight.png", "res/stop.png", "res/pressedStop.png",
-                                672, 425);
-        dropBox = new DropBox(33, 115, "Events:");
+                                672, 425+28);
+        dropBox = new DropBox(33, 115+28, "Events:");
         dropBox->setItems(simulatedTimeTracker->getActionList()); //TODO
 
         eventDiplsayTexture.loadFromFile("res/eventDisplayBox.png");
-        clock = new Clock(473, 26);
+        clock = new Clock(473, 26+28);
         timeAndDateTexture.loadFromFile("res/timeAndDateDisplay.png");
+
+        windowBar = new WindowBar(0, 0, *renderWindow);
+
+        eventButton = new Button("res/eventInactive.png", "res/eventHighlight.png", "res/eventActive.png", "res/eventPressed.png",
+                                 798, 43);
     }
 
     ~WindowImpl() {
@@ -67,10 +87,12 @@ struct MyWindow::WindowImpl {
         startButton->draw(*renderWindow);
         pauseButton->draw(*renderWindow);
         stopButton->draw(*renderWindow);
+        windowBar->draw(*renderWindow);
+        eventButton->draw(*renderWindow);
 
         sf::Sprite eventDisplay;
         eventDisplay.setTexture(eventDiplsayTexture);
-        eventDisplay.setPosition(463, 374);
+        eventDisplay.setPosition(463, 374+28);
         renderWindow->draw(eventDisplay);
 
         sf::Font font;
@@ -85,13 +107,13 @@ struct MyWindow::WindowImpl {
         sf::Color color(107, 105, 130);
         if (!simulatedTimeTracker->isThereEventStarted())
             text.setFillColor(color);
-        text.setPosition(474, 383);
+        text.setPosition(474, 383+28);
         renderWindow->draw(text);
 
 
         sf::Sprite timeAndDate;
         timeAndDate.setTexture(timeAndDateTexture);
-        timeAndDate.setPosition(38, 39);
+        timeAndDate.setPosition(38, 39+28);
         renderWindow->draw(timeAndDate);
         std::string date = std::to_string(1900 + ltm->tm_year) + "-" ;//+ std::to_string(1 + ltm->tm_mon) + "-" +
                            //std::to_string(ltm->tm_mday);
@@ -122,11 +144,11 @@ struct MyWindow::WindowImpl {
         sf::Color gray(159, 159, 159);
 
         sf::Text dateText(date, font, 19);
-        dateText.setPosition(134, 40);
+        dateText.setPosition(134, 40+28);
         dateText.setFillColor(gray);
 
         sf::Text timeText(time, font, 19);
-        timeText.setPosition(134, 68);
+        timeText.setPosition(134, 68+28);
         timeText.setFillColor(gray);
 
         renderWindow->draw(dateText);
@@ -158,6 +180,8 @@ struct MyWindow::WindowImpl {
         startButton->update(*renderWindow);
         pauseButton->update(*renderWindow);
         stopButton->update(*renderWindow);
+        windowBar->update(*renderWindow);
+        eventButton->update(*renderWindow);
 
         long time;
         if (simulatedTimeTracker->isThereEventStarted())
@@ -170,17 +194,31 @@ struct MyWindow::WindowImpl {
         while (renderWindow->pollEvent(event)) {
             handleEvents(event);
         }
+
+        if (windowBar->isClosePressed()) {
+            renderWindow->close();
+        }
+
+        if (windowBar->isCollapsePressed()) {
+            windowBar->reset();
+            bool screwLinux = setMinimized(renderWindow->getSystemHandle()); //FIXME OS specific
+        }
     }
 
     void handleEvents(sf::Event event) {
         if (event.type == sf::Event::EventType::Closed) {
             renderWindow->close();
         } else {
-            dropBox->handleEvents(*renderWindow, event);
-            startButton->handleEvents(*renderWindow, event);
-            pauseButton->handleEvents(*renderWindow, event);
-            stopButton->handleEvents(*renderWindow, event);
-            clock->handleEvents(*renderWindow, event);
+            if (!windowBar->isDragged()){
+                dropBox->handleEvents(*renderWindow, event);
+                startButton->handleEvents(*renderWindow, event);
+                pauseButton->handleEvents(*renderWindow, event);
+                stopButton->handleEvents(*renderWindow, event);
+                clock->handleEvents(*renderWindow, event);
+                eventButton->handleEvents(*renderWindow, event);
+            }
+            windowBar->handleEvents(*renderWindow, event);
+            renderWindow->setPosition(sf::Vector2i(windowBar->getWinX(), windowBar->getWinY()));
         }
     }
 

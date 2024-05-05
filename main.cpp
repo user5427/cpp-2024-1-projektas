@@ -8,17 +8,11 @@
 
 int main() {
     sf::Clock clock;
-    int updatesPerSecond = 60;
-    long long int timeSinceLastUpdate = 0;
-    long long int timePerUpdate = 1000000 / updatesPerSecond;
     SimulatedTimeTracker *timeTracker = new SimulatedTimeTracker();
     MyWindow *window = new MyWindow(timeTracker);
-    while (window->getRenderWindow()->isOpen()){
-        if (clock.getElapsedTime().asMicroseconds() - timeSinceLastUpdate > timePerUpdate){
-            timeSinceLastUpdate += timePerUpdate;
-            window->update();
-            window->draw();
-        }
+    while (window->getRenderWindow()->isOpen()) {
+        window->update();
+        window->draw();
     }
 
     delete window;

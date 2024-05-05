@@ -5,3 +5,11 @@
 5) demonstracinio video sukūrimas => ~3 h.
 6) flowchart sukūrimas => 30 min.
 7) mini pavyzdukas konsolėje => 15 min.
+
+Frontend:
+1) pradinio puslapio sukūrimas su button, slider, dropbox ir comment box => 4 h.
+2) sukūrimo laikrodžio ir kitų dalykų patobulinimas => 2 h.
+3) tekstūrų sukūrimas => 1 h.
+4) ikonų sukūrimas => 1 h.
+5) programos dizaino patobulinimas (close ir collapse mygtukai, panaikintas standartinis title programos virsuje) => 1 h.
+6) transparencijos pritaikymas => 30 min.

@@ -24,7 +24,11 @@ add_executable(cpp_2024_1_projektas main.cpp
         frontend/AbstractUIElement.h
         frontend/SimulatedTimeTracker.h
         frontend/Clock.cpp
-        frontend/Clock.h)
+        frontend/Clock.h
+        res/logo.c
+        frontend/Transperent.h
+        frontend/WindowBar.cpp
+        frontend/WindowBar.h)
 
 include_directories(headers /usr/include c:/SFML/include)
 
@@ -36,6 +40,10 @@ if (SFML_FOUND)
 endif()
 
 file(COPY res DESTINATION ${CMAKE_BINARY_DIR})
+
+add_custom_command(TARGET cpp_2024_1_projektas POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/res $<TARGET_FILE_DIR:cpp_2024_1_projektas>/res)
 
 # copy dlls to build directory
 if (WIN32)

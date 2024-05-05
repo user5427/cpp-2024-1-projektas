@@ -89,6 +89,10 @@ struct Button::ButtonImpl {
         reset();
     }
 
+    bool isHighlighted() {
+        return highlighted;
+    }
+
 };
 
 Button::Button(std::string inactive, std::string highlight, std::string active, std::string pressed, int x, int y) : ptr(new ButtonImpl(inactive, highlight, active, pressed, x, y)) {
@@ -124,5 +128,9 @@ void Button::reset() {
 
 void Button::disable(bool disableButton) {
     ptr->disable(disableButton);
+}
+
+bool Button::isHighlighted() {
+    return ptr->isHighlighted();
 }
 
