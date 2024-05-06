@@ -64,7 +64,6 @@ struct EventWindow::EventWindowImpl {
         }
 
         if (windowBar->isClosePressed()) {
-            renderWindow->close();
             openW = false;
         }
 
@@ -141,6 +140,10 @@ struct EventWindow::EventWindowImpl {
         this->data = data;
     }
 
+    void clearData(){
+        data.clear();
+    }
+
     void runner() {
         renderWindow = new sf::RenderWindow(sf::VideoMode(828, 422), "PSP tracker", sf::Style::None);
         renderWindow->setIcon(gimp_image.width, gimp_image.height, gimp_image.pixel_data);
@@ -158,7 +161,7 @@ struct EventWindow::EventWindowImpl {
         bool setTransparencyS = setTransparency(renderWindow->getSystemHandle(), 255);//FIXME OS specific
 
         windowBar = new WindowBar(0, 0, *renderWindow, 731, "res/eventBar.png");
-        slider = new Slider(786-4, 64+6, 338-12, true);
+        slider = new Slider(786-4, 64+1, 338-12, true);
 
         while (renderWindow->isOpen() && openW) {
             sf::Event event;
@@ -199,6 +202,7 @@ bool EventWindow::isOpen() {
 }
 
 void EventWindow::setData(std::vector<dataPoint> data) {
+    pimpl->clearData();
     pimpl->setData(data);
 }
 
