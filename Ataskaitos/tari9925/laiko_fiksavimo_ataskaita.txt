@@ -13,3 +13,4 @@ Frontend:
 4) ikonų sukūrimas => 1 h.
 5) programos dizaino patobulinimas (close ir collapse mygtukai, panaikintas standartinis title programos virsuje) => 1 h.
 6) transparencijos pritaikymas => 30 min.
+7) antro lango sukūrimas su visiškai atskira gija => 2-3 h.
