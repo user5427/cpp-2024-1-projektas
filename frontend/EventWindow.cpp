@@ -78,7 +78,7 @@ struct EventWindow::EventWindowImpl {
 
     void draw() {
         sf::Sprite windowSprite(windowTexture);
-        windowSprite.setPosition(0, 5);
+        windowSprite.setPosition(0, 0);
         renderWindow->draw(windowSprite);
 
         sf::Font font;
