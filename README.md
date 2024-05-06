@@ -8,6 +8,12 @@
 
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
+
+## P2. Front-end
+Realizuotas šitoks front-end.
+![Imgur](https://imgur.com/OQ6Rz9W.png)
+![Imgur](https://imgur.com/am4Z0vW.png)
+
 ### Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, 
 negu susirašinėjant visus įvykius į word/excel dokumentą. Taip pat būtų 
