@@ -9,7 +9,7 @@
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
 
-## P2. Front-end
+## UI dalis. Front-end
 Realizuotas šitoks front-end.
 ![Imgur](https://imgur.com/OQ6Rz9W.png)
 ![Imgur](https://imgur.com/am4Z0vW.png)
