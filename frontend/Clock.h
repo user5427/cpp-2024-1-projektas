@@ -15,7 +15,7 @@ public:
     ~Clock();
     void draw(sf::RenderWindow& window) override;
     void update(sf::RenderWindow& window) override;
-    void update(sf::RenderWindow& window, long time);
+    void update(sf::RenderWindow& window, long long time);
     void handleEvents(sf::RenderWindow& window, sf::Event event) override;
     void show(bool showClock) override;
     void disable(bool disableClock) override;

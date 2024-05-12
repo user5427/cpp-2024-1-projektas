@@ -10,6 +10,7 @@
 #include <string>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "AbstractUIElement.h"
+#include "CommentBox.h"
 
 class DropBox : public AbstractUIElement {
 public:
@@ -23,6 +24,7 @@ public:
     void setItems(std::vector<std::string> items);
     std::string getSelectedItem();
     void reset() override;
+    CommentBox* getCommentBox();
 private:
     class DropBoxImpl;
     DropBoxImpl* ptr;

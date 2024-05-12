@@ -213,6 +213,10 @@ struct DropBox::DropBoxImpl {
         reset();
     }
 
+    CommentBox* getCommentBox() {
+        return commentBox;
+    }
+
 };
 
 DropBox::DropBox(int x, int y, std::string name) : ptr(new DropBoxImpl(x, y, name)) {
@@ -254,3 +258,6 @@ void DropBox::reset() {
     ptr->reset();
 }
 
+CommentBox* DropBox::getCommentBox() {
+    return ptr->getCommentBox();
+}

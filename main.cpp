@@ -5,6 +5,7 @@
 #include "SFML/Graphics/RectangleShape.hpp"
 #include "frontend/MyWindow.h"
 #include "frontend/SimulatedTimeTracker.h"
+#include "frontend/backend_singleton/TimeTracker_Singleton.h"
 
 int main() {
     sf::Clock clock;

@@ -4,13 +4,13 @@ project(cpp_2024_1_projektas)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(cpp_2024_1_projektas main.cpp
-#        Backend/FileIO.cpp
-#        Backend/FileIO.h
-#        Backend/FileIO.cpp
-#        Backend/TimeTracker.cpp
-#        Backend/TimeTracker.h
-#        Backend/Data.cpp
-#        Backend/Data.h
+        Backend/FileIO.cpp
+        Backend/FileIO.h
+        Backend/FileIO.cpp
+        Backend/TimeTracker.cpp
+        Backend/TimeTracker.h
+        Backend/Data.cpp
+        Backend/Data.h
         frontend/MyWindow.cpp
         frontend/MyWindow.h
         frontend/Button.cpp
@@ -36,6 +36,15 @@ add_executable(cpp_2024_1_projektas main.cpp
         frontend/dataPoint.h
         frontend/dataPoint.h
         frontend/Transparent.cpp
+        frontend/backend_singleton/TimeTracker_Singleton.cpp
+        frontend/backend_singleton/TimeTracker_Singleton.h
+        frontend/backend_singleton/TimeTracker_Singleton.h
+        frontend/error_singleton/Error_Singleton.cpp
+        frontend/error_singleton/Error_Singleton.h
+        frontend/longToChrono/longConverter.cpp
+        frontend/longToChrono/longConverter.h
+        frontend/proxy/front_back_proxy.cpp
+        frontend/proxy/front_back_proxy.h
 )
 
 include_directories(headers /usr/include c:/SFML/include)

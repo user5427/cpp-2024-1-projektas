@@ -11,7 +11,7 @@
 class SimulatedTimeTracker {
 public:
     std::vector<std::string> getActionList(){
-        return {"action1", "action2", "action3", "action4", "action5", "action6", "action7", "action8", "action9", "action10"};
+        return {"PSP veikla", "Kodavimas", "Skaitymas", "Planavimas", "Projektavimas", "Aptarimas", "Testavimas", "Kompiliavimas", "Atsiskaitymas", "Kitas veiksmas"};
     }
 
     bool isThereEventStarted(){
