@@ -10,9 +10,9 @@
 
 class Data {
 public:
-    std::string Name;
+    std::string Name, comment;
     long beginT, endT;
-    Data(std::string Name, long bTime, long eTime);
+    Data(std::string Name, long bTime, long eTime, std::string Comment);
 };
 
 
