@@ -15,8 +15,12 @@ public:
     static void endEntry(std::chrono::time_point<std::chrono::system_clock> time);
     static void pauseEntry(std::chrono::time_point<std::chrono::system_clock> time);
     static bool isEntryActive();
+    static bool isEntryPaused();
     static long long getActiveEntryTime();
     static std::string getActiveEntryName();
+    static void initFile(std::string path);
+    static void saveToFile();
+    static void loadFromFile();
 private:
     struct fbProxyImpl;
     fbProxyImpl* ptr;

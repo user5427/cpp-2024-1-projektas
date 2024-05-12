@@ -14,3 +14,4 @@ Frontend:
 5) programos dizaino patobulinimas (close ir collapse mygtukai, panaikintas standartinis title programos virsuje) => 1 h.
 6) transparencijos pritaikymas => 30 min.
 7) antro lango sukūrimas su visiškai atskira gija => 2-3 h.
+8) frontendo ir backend'o integravimas => 2 h.
