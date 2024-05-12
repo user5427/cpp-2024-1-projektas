@@ -20,11 +20,11 @@ struct TimeTracker::TimeTrackerImpl{
     bool currentlyTracking = false;
     std::string Name, Comment;
     bool openedFile = false;
-    long begin = 0;
+    long long begin = 0;
     FileIO file ;
-    long end = 0;
+    long long end = 0;
     void writeToVector(){
-        Data d(Name, begin, end);
+        Data d(Name, begin, end, Comment);
         data.push_back(d);
         currentlyTracking = false;
     }
@@ -53,7 +53,7 @@ TimeTracker::TimeTracker() {
     ptr = new struct TimeTrackerImpl;
 }
 
-int TimeTracker::addEntry(std::string Name, long BTime, long ETime, std::string Comment) {
+int TimeTracker::addEntry(std::string Name, long long BTime, long long ETime, std::string Comment) {
     if(ptr->currentlyTracking){
         return 0;
     }
@@ -62,6 +62,7 @@ int TimeTracker::addEntry(std::string Name, long BTime, long ETime, std::string 
     ptr->begin = BTime;
     ptr->end = ETime;
     ptr->writeToVector();
+    return 1;
 }
 
 int TimeTracker::initFileio(std::string fileName) {
@@ -118,16 +119,17 @@ int TimeTracker::readFromFile() {
     return 1;
 }
 
-int TimeTracker::beginEntry(std::string Name, long BTime, std::string comment) {
+int TimeTracker::beginEntry(std::string Name, long long BTime, std::string comment) {
     if(ptr->currentlyTracking)
         return 0;
     ptr->Name = Name;
     ptr->begin = BTime;
     ptr->Comment = comment;
+    ptr->currentlyTracking = 1;
     return 1;
 }
 
-int TimeTracker::endEntry(long ETime) {
+int TimeTracker::endEntry(long long ETime) {
     if(!ptr->currentlyTracking)
         return 0;
     ptr->end = ETime;
@@ -135,21 +137,7 @@ int TimeTracker::endEntry(long ETime) {
     return 1;
 }
 
-int TimeTracker::closeFile() {
-    if(ptr->openedFile){
-        ptr->file.close();
-        return 1;
-    }
-    return 0;
-}
 
-int TimeTracker::reopenFile() {
-    if(!ptr->openedFile){
-        return 0;
-    }
-    ptr->file.open();
-    return 1;
-}
 
 std::vector<Data> TimeTracker::getData() {
     return ptr->data;
@@ -159,7 +147,7 @@ bool TimeTracker::isThereEventStarted() {
     return ptr->currentlyTracking;
 }
 
-long TimeTracker::getCurrentEventDuration() {
+long long TimeTracker::getCurrentEventDuration() {
     if(ptr->end == 0) {
         return (time(0) - ptr->begin) / 1000;
     } else{
@@ -175,7 +163,7 @@ std::string TimeTracker::activeEventName() {
     return ptr->Name;
 }
 
-int TimeTracker::pause(long T) {
+int TimeTracker::pause(long long T) {
     if(!ptr->currentlyTracking){
         return 0;
     }
@@ -190,4 +178,5 @@ int TimeTracker::pause(long T) {
         ptr->Comment = ptr->pausedComment;
         ptr->isPaused = 0;
     }
+    return 1;
 }

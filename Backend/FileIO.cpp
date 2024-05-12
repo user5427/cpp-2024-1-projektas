@@ -13,26 +13,31 @@ struct FileIO::FileIOImpl{
 FileIO::FileIO(std::string fileName) {
     ptr = new struct FileIOImpl;
     ptr->Name = fileName;
-    ptr->File.open(fileName, std::ios::in | std::ios::out);
-}
-
-void FileIO::close() {
-    ptr->File.close();
-}
-
-int FileIO::open() {
-    ptr->File.open(ptr->Name, std::ios::in | std::ios::out);
-    return ptr->File.is_open();
+    //ptr->File.open(fileName, std::ios::in | std::ios::out | std::ios::trunc);
 }
 
 
 std::vector<std::string> FileIO::readAll() {
     std::vector<std::string> data;
-    while(!ptr->File.eof()) {
+    std::string inf;
+    ptr->File.open(ptr->Name, std::fstream::in);
+    while(std::getline(ptr->File, inf)) {
         char TMP[50001];
-        ptr->File.getline(TMP, 50000);
-        std::string inf(TMP);
+        //ptr->File.getline(TMP, 50000);
+
+
+        //std::string inf(TMP);
         data.push_back(inf);
     }
+    ptr->File.close();
     return data;
+}
+
+int FileIO::write(std::vector<std::string> data) {
+    ptr->File.open(ptr->Name, std::fstream::out);
+    for(std::string R : data){
+        ptr->File<<R;
+    }
+    ptr->File.close();
+    return 1;
 }

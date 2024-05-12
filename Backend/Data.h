@@ -11,8 +11,8 @@
 class Data {
 public:
     std::string Name, comment;
-    long beginT, endT;
-    Data(std::string Name, long bTime, long eTime, std::string Comment);
+    long long beginT, endT;
+    Data(std::string Name, long long bTime, long long eTime, std::string Comment);
 };
 
 

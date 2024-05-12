@@ -16,10 +16,6 @@ private:
     struct FileIOImpl *ptr;
 public:
     FileIO(std::string fileName);
-    ///Open The File
-    void close();
-    ///Close The File
-    int open();
     ///Get All Contents of the Data File
     std::vector<std::string> readAll();
     int write(std::vector<std::string> data);

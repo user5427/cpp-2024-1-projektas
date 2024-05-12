@@ -15,23 +15,15 @@ private:
     struct TimeTrackerImpl *ptr;
 public:
     TimeTracker();
-    int addEntry(std::string Name, long BTime, long ETime, std::string comment);
+    int addEntry(std::string Name, long long BTime, long long ETime, std::string comment);
     int initFileio(std::string FileName);
     int writeToFile();
     int appendToFile();
-    int pause(long Time);
+    int pause(long long Time);
     int readFromFile();
-    int beginEntry(std::string Name, long BTime, std::string comment);
-    int endEntry(long ETime);
-    int closeFile();
-    int reopenFile();
+    int beginEntry(std::string Name, long long BTime, std::string comment);
+    int endEntry(long long ETime);
     std::vector<Data> getData();
-    // gal reiktu ir paprasto beginEntry tik su Name parametru? TODO
-    // is github "Pagrindinės funkcijos yra startEvent, pauseEvent, stopEvent, comment.", reikia igyvendinti/pervardinti sias funkcijas? TODO
-    // reikia galimybes gauti visus galimus veiksmus TODO
-    // dar reikia igyvendinti visus reikalavimus is pdf failo TODO
-    // is SimulatedTimeTracker igyvendinti metodus TODO
-    // std::chrono::system_clock::time_point begin; TODO long labai nepatogus
     bool isThereEventStarted();
 
     bool isTherePausedEvent();
@@ -39,7 +31,7 @@ public:
     std::string activeEventName();
 
     // Returns the duration of the current event in seconds
-    long getCurrentEventDuration();
+    long long getCurrentEventDuration();
 };
 
 

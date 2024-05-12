@@ -4,7 +4,7 @@
 
 #include "Data.h"
 
-Data::Data(std::string Name, long bTime, long eTime, std::string Comment) {
+Data::Data(std::string Name, long long bTime, long long eTime, std::string Comment) {
     this->Name = Name;
     beginT = bTime;
     endT = eTime;
