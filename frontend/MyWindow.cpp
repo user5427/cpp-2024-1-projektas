@@ -170,11 +170,7 @@ struct MyWindow::WindowImpl {
         if (simulatedTimeTracker->isThereEventStarted()) {
             startButton->disable(true);
             pauseButton->disable(false);
-            if (simulatedTimeTracker->isTherePausedEvent()) {
-                stopButton->disable(true);
-            } else {
-                stopButton->disable(false);
-            }
+            stopButton->disable(false);
         } else {
             startButton->disable(false);
             pauseButton->disable(true);
