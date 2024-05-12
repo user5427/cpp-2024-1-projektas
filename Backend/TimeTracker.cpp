@@ -24,7 +24,7 @@ struct TimeTracker::TimeTrackerImpl{
     FileIO file ;
     long end = 0;
     void writeToVector(){
-        Data d(Name, begin, end);
+        Data d(Name, begin, end, Comment);
         data.push_back(d);
         currentlyTracking = false;
     }
