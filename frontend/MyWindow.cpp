@@ -13,6 +13,10 @@
 #include "Transparent.h"
 #include "WindowBar.h"
 #include "EventWindow.h"
+#include "../backend/TimeTracker.h"
+#include "backend_singleton/TimeTracker_Singleton.h"
+#include "longToChrono/longConverter.h"
+#include "proxy/front_back_proxy.h"
 
 struct MyWindow::WindowImpl {
     sf::RenderWindow *renderWindow;
@@ -103,14 +107,14 @@ struct MyWindow::WindowImpl {
         sf::Font font;
         font.loadFromFile("res/fonts/inter/Inter-Regular.ttf");
         std::string eventString;
-        if (simulatedTimeTracker->isThereEventStarted()) {
-            eventString = simulatedTimeTracker->activeEventName();
+        if (front_back_proxy::isEntryActive()) { //DONE
+            eventString = front_back_proxy::getActiveEntryName(); //DONE
         } else {
             eventString = "No events active.";
         }
         sf::Text text(eventString, font, 19);
         sf::Color color(107, 105, 130);
-        if (!simulatedTimeTracker->isThereEventStarted())
+        if (!front_back_proxy::isEntryActive()) //DONE
             text.setFillColor(color);
         text.setPosition(474, 383+28);
         renderWindow->draw(text);
@@ -167,7 +171,23 @@ struct MyWindow::WindowImpl {
     void update() {
         now = time(0);
         ltm = localtime(&now);
-        if (simulatedTimeTracker->isThereEventStarted()) {
+
+        if (startButton->isPressed()){
+            front_back_proxy::beginEntry(dropBox->getSelectedItem(), std::chrono::system_clock::now(), dropBox->getCommentBox()->getText()); //DONE
+            startButton->reset();
+        }
+
+        if (pauseButton->isPressed()){
+            front_back_proxy::pauseEntry(std::chrono::system_clock::now()); //DONE
+            pauseButton->reset();
+        }
+
+        if (stopButton->isPressed()){
+            front_back_proxy::endEntry(std::chrono::system_clock::now()); //DONE
+            stopButton->reset();
+        }
+
+        if (front_back_proxy::isEntryActive()) { //DONE
             startButton->disable(true);
             pauseButton->disable(false);
             stopButton->disable(false);
@@ -184,12 +204,13 @@ struct MyWindow::WindowImpl {
         windowBar->update(*renderWindow);
         eventButton->update(*renderWindow);
 
-        long time;
-        if (simulatedTimeTracker->isThereEventStarted())
-            time = simulatedTimeTracker->getCurrentEventDuration();
+        long long time;
+        if (front_back_proxy::isEntryActive())
+            time = front_back_proxy::getActiveEntryTime(); //DONE
         else {
             time = ltm->tm_hour * 3600 + ltm->tm_min * 60 + ltm->tm_sec;
         }
+
         clock->update(*renderWindow, time);
         sf::Event event;
         while (renderWindow->pollEvent(event)) {
@@ -208,31 +229,14 @@ struct MyWindow::WindowImpl {
 
         if (eventButton->isPressed() && !eventWindow->isOpen()) {
             eventWindow->open();
+            std::vector<Data> data2 = TimeTracker_Singleton::getTracker()->getData(); //DONE
             std::vector<dataPoint> data;
-            dataPoint dp("Event", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment");
-            data.push_back(dp);
-            dataPoint dp1("Event1", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment1");
-            data.push_back(dp1);
-            dataPoint dp2("Event2", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment2");
-            data.push_back(dp2);
-            dataPoint dp3("Event3", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment3");
-            data.push_back(dp3);
-            dataPoint dp4("Event4", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment4");
-            data.push_back(dp4);
-            dataPoint dp5("Event5", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment5");
-            data.push_back(dp5);
-            dataPoint dp6("Event6", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment6");
-            data.push_back(dp6);
-            dataPoint dp7("Event7", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment7");
-            data.push_back(dp7);
-            dataPoint dp8("Event8", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment8");
-            data.push_back(dp8);
-            dataPoint dp9("Event9", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment9");
-            data.push_back(dp9);
-            dataPoint dp10("Event10", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment10");
-            data.push_back(dp10);
-            dataPoint dp11("Event11", std::chrono::system_clock::now(), std::chrono::system_clock::now(), "Comment11");
-            data.push_back(dp11);
+            for (int i = 0; i < data2.size(); i++) {
+                std::chrono::time_point<std::chrono::system_clock> start = longConverter::convertToChrono(data2[i].beginT); //DONE
+                std::chrono::time_point<std::chrono::system_clock> end = longConverter::convertToChrono(data2[i].endT); //DONE
+                dataPoint dp(data2[i].Name, start, end, data2[i].comment);
+                data.push_back(dp);
+            }
             eventWindow->setData(data);
             eventButton->reset();
         } else if (eventButton->isPressed()) {

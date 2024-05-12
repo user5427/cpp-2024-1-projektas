@@ -126,7 +126,7 @@ struct Clock::ClockImpl {
     void update(sf::RenderWindow& window) {
     }
 
-    void update(sf::RenderWindow& window, long time) {
+    void update(sf::RenderWindow& window, long long time) {
         this->time = time;
         hours = time / 3600;
         time = time % 3600;
@@ -183,7 +183,7 @@ void Clock::update(sf::RenderWindow& window) {
     ptr->update(window);
 }
 
-void Clock::update(sf::RenderWindow& window, long time) {
+void Clock::update(sf::RenderWindow& window, long long time) {
     ptr->update(window, time);
 }
 
