@@ -120,7 +120,7 @@ int TimeTracker::readFromFile() {
 }
 
 int TimeTracker::beginEntry(std::string Name, long long BTime, std::string comment) {
-    if(ptr->currentlyTracking)
+    if(!ptr->isPaused&&ptr->currentlyTracking)
         return 0;
     ptr->Name = Name;
     ptr->begin = BTime;
@@ -173,7 +173,7 @@ int TimeTracker::pause(long long T) {
         ptr->isPaused = 1;
         endEntry(T);
     } else{
-        beginEntry(ptr->pausedName, T, ptr->Comment);
+        beginEntry(ptr->pausedName, T, ptr->pausedName);
         ptr->Name = ptr->pausedName;
         ptr->Comment = ptr->pausedComment;
         ptr->isPaused = 0;
