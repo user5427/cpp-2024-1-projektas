@@ -152,7 +152,7 @@ bool TimeTracker::isThereEventStarted() {
 }
 
 long long TimeTracker::getCurrentEventDuration(long long T) {
-    if(ptr->end == 0) {
+    if(ptr->end != 0) {
         return (T - ptr->begin);
     } else{
         return (ptr->end - ptr->begin);
