@@ -29,6 +29,10 @@ struct TimeTracker::TimeTrackerImpl{
         data.push_back(d);
         if(!isPaused)
             currentlyTracking = false;
+        Name = "";
+        Comment = "";
+        begin = 0;
+        end = 0;
     }
     std::vector<Data> data;
 };
