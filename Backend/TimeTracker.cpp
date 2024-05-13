@@ -155,7 +155,8 @@ long long TimeTracker::getCurrentEventDuration(long long T) {
     if(!ptr->isPaused&&ptr->currentlyTracking){
         return (T - ptr->begin);
     } else{
-        return 0;
+        Data tmp =  ptr->data.at(ptr->data.size()-1);
+        return tmp.endT - tmp.beginT;
     }
 
 }
