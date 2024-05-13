@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <ctime>
+#include <iostream>
 #include "TimeTracker.h"
 #include "Data.h"
 #include "FileIO.h"
@@ -148,9 +149,9 @@ bool TimeTracker::isThereEventStarted() {
 
 long long TimeTracker::getCurrentEventDuration() {
     if(ptr->end == 0) {
-        return (time(0) - ptr->begin) / 1000;
+        return (time(0) - ptr->begin);
     } else{
-        return (ptr->end - ptr->begin)/1000;
+        return (ptr->end - ptr->begin);
     }
 }
 
@@ -162,7 +163,7 @@ std::string TimeTracker::activeEventName() {
     return ptr->Name;
 }
 
-int TimeTracker::pause(long long T) {
+int TimeTracker::pause(long long T) { // FIXME: This function is not working properly (does not unpause)
     if(!ptr->currentlyTracking){
         return 0;
     }
@@ -179,3 +180,5 @@ int TimeTracker::pause(long long T) {
     }
     return 1;
 }
+
+// TODO file io

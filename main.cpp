@@ -10,7 +10,7 @@
 
 int main() {
     // check if there is a file db.txt
-    front_back_proxy::initFile("db");
+    front_back_proxy::initFile("db.csv");
     front_back_proxy::loadFromFile();
     SimulatedTimeTracker *timeTracker = new SimulatedTimeTracker();
     MyWindow *window = new MyWindow(timeTracker);

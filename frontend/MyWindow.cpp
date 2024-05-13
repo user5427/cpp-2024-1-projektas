@@ -191,6 +191,7 @@ struct MyWindow::WindowImpl {
 
         if (startButton->isPressed()){
             front_back_proxy::beginEntry(dropBox->getSelectedItem(), std::chrono::system_clock::now(), dropBox->getCommentBox()->getText()); //DONE
+            std::cout << "start" << std::endl;
             startButton->reset();
         }
 
@@ -202,6 +203,7 @@ struct MyWindow::WindowImpl {
 
         if (stopButton->isPressed()){
             front_back_proxy::endEntry(std::chrono::system_clock::now()); //DONE
+            std::cout << "stop" << std::endl;
             stopButton->reset();
         }
 
@@ -212,7 +214,7 @@ struct MyWindow::WindowImpl {
         } else if (front_back_proxy::isEntryPaused()){
             startButton->disable(true);
             pauseButton->disable(false);
-            stopButton->disable(false);
+            stopButton->disable(true);
         } else {
             startButton->disable(false);
             pauseButton->disable(true);
