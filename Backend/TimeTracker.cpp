@@ -7,7 +7,7 @@
 #include "TimeTracker.h"
 #include "Data.h"
 #include "FileIO.h"
-#include "../frontend/SimulatedTimeTracker.h"
+#include "SimulatedTimeTracker.h"
 
 
 struct TimeTracker::TimeTrackerImpl{
@@ -26,7 +26,8 @@ struct TimeTracker::TimeTrackerImpl{
     void writeToVector(){
         Data d(Name, begin, end, Comment);
         data.push_back(d);
-        currentlyTracking = false;
+        if(!isPaused)
+            currentlyTracking = false;
     }
     std::vector<Data> data;
 };
@@ -87,9 +88,8 @@ int TimeTracker::writeToFile() {
 }
 
 int TimeTracker::appendToFile() {
-    if(readFromFile() == 0){
-        return 0;
-    }
+    readFromFile();
+
     if(writeToFile() == 0){
         return 0;
     }
@@ -138,7 +138,6 @@ int TimeTracker::endEntry(long long ETime) {
 }
 
 
-
 std::vector<Data> TimeTracker::getData() {
     return ptr->data;
 }
@@ -173,7 +172,7 @@ int TimeTracker::pause(long long T) {
         ptr->isPaused = 1;
         endEntry(T);
     } else{
-        beginEntry(ptr->pausedName, T, ptr->pausedName);
+        beginEntry(ptr->pausedName, T, ptr->Comment);
         ptr->Name = ptr->pausedName;
         ptr->Comment = ptr->pausedComment;
         ptr->isPaused = 0;
