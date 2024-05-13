@@ -27,7 +27,7 @@ public:
     }
 
     // Returns the duration of the current event in seconds
-    long getCurrentEventDuration() {
+    long long getCurrentEventDuration(long long Time) {
         return 485181;
     }
 };

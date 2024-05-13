@@ -31,7 +31,7 @@ public:
     std::string activeEventName();
 
     // Returns the duration of the current event in seconds
-    long long getCurrentEventDuration();
+    long long getCurrentEventDuration(long long currentTime);
 };
 
 
