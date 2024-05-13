@@ -44,6 +44,8 @@ struct MyWindow::WindowImpl {
 
     EventWindow *eventWindow = nullptr;
 
+    long long sumTimeCount = 0;
+
     WindowImpl(SimulatedTimeTracker *pTracker) {
         simulatedTimeTracker = pTracker;
         renderWindow = new sf::RenderWindow(sf::VideoMode(863, 530), "PSP tracker", sf::Style::None);
@@ -192,12 +194,14 @@ struct MyWindow::WindowImpl {
         if (startButton->isPressed()){
             front_back_proxy::beginEntry(dropBox->getSelectedItem(), std::chrono::system_clock::now(), dropBox->getCommentBox()->getText()); //DONE
             std::cout << "start" << std::endl;
+            sumTimeCount = 0;
             startButton->reset();
         }
 
         if (pauseButton->isPressed()){
             front_back_proxy::pauseEntry(std::chrono::system_clock::now()); //DONE
             std::cout << "pause" << std::endl;
+                sumTimeCount += front_back_proxy::getActiveEntryTime(std::chrono::system_clock::now()); //DONE
             pauseButton->reset();
         }
 
@@ -207,7 +211,7 @@ struct MyWindow::WindowImpl {
             stopButton->reset();
         }
 
-        if (front_back_proxy::isEntryActive()) { //DONE
+        if (front_back_proxy::isEntryActive() && !front_back_proxy::isEntryPaused()) { //DONE
             startButton->disable(true);
             pauseButton->disable(false);
             stopButton->disable(false);
@@ -231,8 +235,16 @@ struct MyWindow::WindowImpl {
         eventButton->update(*renderWindow);
 
         long long time;
-        if (front_back_proxy::isEntryActive() || front_back_proxy::isEntryPaused()) //DONE
-            time = front_back_proxy::getActiveEntryTime(); //DONE
+        if (front_back_proxy::isEntryActive() || front_back_proxy::isEntryPaused()){
+//            std::cout<< std::to_string(time) << std::endl;
+            time = front_back_proxy::getActiveEntryTime(std::chrono::system_clock::now()); //DONE
+            long long formTime;
+            if (front_back_proxy::isEntryPaused())
+                formTime = sumTimeCount - time;
+            else
+                formTime = sumTimeCount;
+            time += formTime;
+        } //DONE
         else
             time = ltm->tm_hour * 3600 + ltm->tm_min * 60 + ltm->tm_sec;
 

@@ -16,7 +16,7 @@ public:
     static void pauseEntry(std::chrono::time_point<std::chrono::system_clock> time);
     static bool isEntryActive();
     static bool isEntryPaused();
-    static long long getActiveEntryTime();
+    static long long getActiveEntryTime(std::chrono::time_point<std::chrono::system_clock> time);
     static std::string getActiveEntryName();
     static void initFile(std::string path);
     static void saveToFile();

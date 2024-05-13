@@ -35,9 +35,10 @@ bool front_back_proxy::isEntryActive() {
     return TimeTracker_Singleton::getTracker()->isThereEventStarted();
 }
 
-long long front_back_proxy::getActiveEntryTime() {
+long long front_back_proxy::getActiveEntryTime(std::chrono::time_point<std::chrono::system_clock> time) {
 //    Error_Singleton::clearError();
-    return TimeTracker_Singleton::getTracker()->getCurrentEventDuration();
+    long long timeC = longConverter::convertToLong(time);
+    return TimeTracker_Singleton::getTracker()->getCurrentEventDuration(timeC);
 }
 
 std::string front_back_proxy::getActiveEntryName() {
