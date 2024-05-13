@@ -6,22 +6,24 @@
 #include "frontend/MyWindow.h"
 #include "frontend/SimulatedTimeTracker.h"
 #include "frontend/backend_singleton/TimeTracker_Singleton.h"
+#include "frontend/proxy/front_back_proxy.h"
 
 int main() {
-    sf::Clock clock;
+    // check if there is a file db.txt
+    front_back_proxy::initFile("db");
+    front_back_proxy::loadFromFile();
     SimulatedTimeTracker *timeTracker = new SimulatedTimeTracker();
     MyWindow *window = new MyWindow(timeTracker);
     while (window->getRenderWindow()->isOpen()) {
         window->update();
         window->draw();
     }
-
+    front_back_proxy::saveToFile();
     delete window;
-
     return 0;
 }
 
-
+//    sf::Clock clock;
 // Create a list to store the start and end times
 //    std::list<std::chrono::high_resolution_clock::time_point> times;
 //

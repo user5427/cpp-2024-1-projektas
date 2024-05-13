@@ -16,14 +16,4 @@ private:
     static TimeTracker *pTracker;
 };
 
-
-TimeTracker* TimeTracker_Singleton::pTracker = nullptr;
-
-TimeTracker *TimeTracker_Singleton::getTracker() {
-    if (pTracker == nullptr) {
-        pTracker = new TimeTracker();
-    }
-    return pTracker;
-}
-
 #endif //CPP_2024_1_PROJEKTAS_TIMETRACKER_SINGLETON_H

@@ -17,6 +17,7 @@
 #include "backend_singleton/TimeTracker_Singleton.h"
 #include "longToChrono/longConverter.h"
 #include "proxy/front_back_proxy.h"
+#include "error_singleton/Error_Singleton.h"
 
 struct MyWindow::WindowImpl {
     sf::RenderWindow *renderWindow;
@@ -107,7 +108,7 @@ struct MyWindow::WindowImpl {
         sf::Font font;
         font.loadFromFile("res/fonts/inter/Inter-Regular.ttf");
         std::string eventString;
-        if (front_back_proxy::isEntryActive()) { //DONE
+        if (front_back_proxy::isEntryActive() || front_back_proxy::isEntryPaused()) { //DONE
             eventString = front_back_proxy::getActiveEntryName(); //DONE
         } else {
             eventString = "No events active.";
@@ -165,6 +166,22 @@ struct MyWindow::WindowImpl {
 
         clock->draw(*renderWindow);
 
+
+        std::string errorC = "*";
+        if (Error_Singleton::hasError()) {
+            errorC = Error_Singleton::getError();
+        }
+
+        sf::Text textE(errorC, font, 12);
+        sf::Color colorE(116, 110, 134);
+        textE.setPosition(463, 506);
+        if (Error_Singleton::hasException())
+            textE.setFillColor(sf::Color::Red);
+        else
+            textE.setFillColor(colorE);
+        renderWindow->draw(textE);
+
+
         renderWindow->display();
     }
 
@@ -179,6 +196,7 @@ struct MyWindow::WindowImpl {
 
         if (pauseButton->isPressed()){
             front_back_proxy::pauseEntry(std::chrono::system_clock::now()); //DONE
+            std::cout << "pause" << std::endl;
             pauseButton->reset();
         }
 
@@ -191,11 +209,17 @@ struct MyWindow::WindowImpl {
             startButton->disable(true);
             pauseButton->disable(false);
             stopButton->disable(false);
+        } else if (front_back_proxy::isEntryPaused()){
+            startButton->disable(true);
+            pauseButton->disable(false);
+            stopButton->disable(false);
         } else {
             startButton->disable(false);
             pauseButton->disable(true);
             stopButton->disable(true);
         }
+
+
 
         dropBox->update(*renderWindow);
         startButton->update(*renderWindow);
@@ -205,11 +229,10 @@ struct MyWindow::WindowImpl {
         eventButton->update(*renderWindow);
 
         long long time;
-        if (front_back_proxy::isEntryActive())
+        if (front_back_proxy::isEntryActive() || front_back_proxy::isEntryPaused()) //DONE
             time = front_back_proxy::getActiveEntryTime(); //DONE
-        else {
+        else
             time = ltm->tm_hour * 3600 + ltm->tm_min * 60 + ltm->tm_sec;
-        }
 
         clock->update(*renderWindow, time);
         sf::Event event;
@@ -243,6 +266,8 @@ struct MyWindow::WindowImpl {
             eventWindow->close();
             eventButton->reset();
         }
+
+
     }
 
     void handleEvents(sf::Event event) {
