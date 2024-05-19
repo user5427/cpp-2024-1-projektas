@@ -27,7 +27,7 @@ Panaudotas **Proxy** patternas, kad būtų galima pasiekti duomenis iš bet kuri
 ## Backend
 .
 
-### Programos tikslas:
+## Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, 
 negu susirašinėjant visus įvykius į word/excel dokumentą. Taip pat būtų 
 galima sekti ir kitas veiklas, nesusiejusias su PSP, bet kurios reikalauja 
