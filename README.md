@@ -22,7 +22,7 @@ Realizuotas šitoks front-end (Tadas).
 [Klasės diagrama](https://imgur.com/mvluO30.png)
 ![Imgur](https://imgur.com/mvluO30.png)
 Panaudotas **Singleton** patternas, kad būtų galima pasiekti duomenis iš bet kurios vietos.
-Panaudotas **Proxy** patternas, kad būtų galima pasiekti duomenis iš bet kurios vietos.
+Panaudotas **Proxy** patternas, kad būtų galima pasiekti duomenis iš bet kurios vietos, papildomai sekant klaidas.
 
 
 ### Programos tikslas:
