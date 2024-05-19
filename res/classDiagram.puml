@@ -1,0 +1,236 @@
+@startuml
+
+class BACKEND.TimeTracker_Singleton {
+    - {static} TimeTracker *pTracker
+    + {static} TimeTracker *getTracker()
+}
+
+class Error_Singleton {
+    + {static} std::string getError();
+    + {static} void setError(std::string error);
+    + {static} bool hasError();
+    + {static} bool hasException();
+    + {static} void setException(bool flag);
+    + {static} void clearError();
+    - {static} std::string error;
+    - {static} bool errorFlag;
+    - {static} bool exceptionFlag;
+}
+
+class longConverter {
+    + {static} long long convertToLong(std::chrono::time_point<std::chrono::system_clock> time);
+    + {static} std::chrono::time_point<std::chrono::system_clock> convertToChrono(long long time);
+}
+
+class front_back_proxy {
+    + {static} void beginEntry(std::string name, std::chrono::time_point<std::chrono::system_clock> time, std::string comment);
+    + {static} void endEntry(std::chrono::time_point<std::chrono::system_clock> time);
+    + {static} void pauseEntry(std::chrono::time_point<std::chrono::system_clock> time);
+    + {static} bool isEntryActive();
+    + {static} bool isEntryPaused();
+    + {static} long long getActiveEntryTime(std::chrono::time_point<std::chrono::system_clock> time);
+    + {static} std::string getActiveEntryName();
+    + {static} void initFile(std::string path);
+    + {static} void saveToFile();
+    + {static} void loadFromFile();
+}
+
+class AbstractUIElement {
+    + {abstract} virtual void draw(sf::RenderWindow& window) = 0;
+      + {abstract} virtual void update(sf::RenderWindow& window) = 0;
+       + {abstract} virtual void handleEvents(sf::RenderWindow& window, sf::Event event) = 0;
+        + {abstract}  virtual void show(bool show) = 0;
+        + {abstract} virtual void disable(bool disable) = 0;
+        + {abstract} virtual void reset() = 0;
+}
+
+class Button{
+    + Button(std::string inactive, std::string highlight, std::string active, std::string pressed, int x, int y);
+    + ~Button();
+    + void draw(sf::RenderWindow& window) override;
+    + void update(sf::RenderWindow& window) override;
+    + void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    + bool isPressed();
+    + void reset() override;
+    + void show(bool showButton) override;
+    + void disable(bool disableButton) override;
+    + bool isHighlighted();
+
+    - ButtonImpl* ptr;
+}
+
+AbstractUIElement <|-- Button
+
+class Clock{
+    + Clock(int x, int y);
+    + ~Clock();
+    + void draw(sf::RenderWindow& window) override;
+    + void update(sf::RenderWindow& window) override;
+    + void update(sf::RenderWindow& window, long long time);
+    + void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    + void show(bool showClock) override;
+    + void disable(bool disableClock) override;
+    + void reset() override;
+
+    - ClockImpl* ptr;
+}
+
+AbstractUIElement <|-- Clock
+
+class CommentBox{
+    + CommentBox(int x, int y);
+    + ~CommentBox();
+    + void draw(sf::RenderWindow& window) override;
+    + void update(sf::RenderWindow& window) override;
+    + void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    + void show(bool showCommentBox) override;
+    + void disable(bool disableCommentBox) override;
+    + void setText(std::string text);
+    + std::string getText();
+    + void reset() override;
+
+    - CommentBoxImpl* ptr;
+}
+
+AbstractUIElement <|-- CommentBox
+
+
+class dataPoint {
+    + dataPoint(std::string eventName, std::chrono::system_clock::time_point begin, std::chrono::system_clock::time_point end, std::string comment);
+    + dataPoint() = default;
+    + dataPoint(const dataPoint &other);
+    + ~dataPoint();
+    + std::string getEventName();
+    + std::string getEventDate();
+    + std::string getEventTime();
+    + std::string getEventComment();
+    + std::string getDuration();
+
+    - dataPointImpl *pimpl;
+}
+
+class DropBox{
+    + DropBox(int x, int y, std::string name);
+    + ~DropBox();
+    + void draw(sf::RenderWindow& window) override;
+    + void update(sf::RenderWindow& window) override;
+    + void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    + void show(bool showDropBox) override;
+    + void disable(bool disableDropBox) override;
+    + void setItems(std::vector<std::string> items);
+    + std::string getSelectedItem();
+    + void reset() override;
+    + CommentBox* getCommentBox();
+
+    - class DropBoxImpl
+}
+
+AbstractUIElement <|-- DropBox
+
+class EventWindow {
+    + EventWindow();
+    + ~EventWindow();
+    + bool isOpen();
+    + void close();
+    + void open();
+    + void setData(std::vector<dataPoint> data);
+
+    - EventWindowImpl *pimpl;
+}
+
+class MyWindow {
+
+    + MyWindow(SimulatedTimeTracker *pTracker);
+    + ~MyWindow();
+    + void draw();
+    + void update();
+    + sf::RenderWindow* getRenderWindow();
+
+    - WindowImpl* ptr;
+}
+
+class SimulatedTimeTracker {
+    + std::vector<std::string> getActionList()
+    + bool isThereEventStarted()
+    + bool isTherePausedEvent()
+    + std::string activeEventName()
+    + long long getCurrentEventDuration(long long Time)
+}
+
+class Slider{
+    + Slider(int x, int y, float length, bool vertical);
+    + ~Slider();
+    + void draw(sf::RenderWindow& window) override;
+    + void update(sf::RenderWindow& window) override;
+    + void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    + void show(bool showSlider) override;
+    + void disable(bool disableSlider) override;
+    + float getValue();
+    + void reset() override;
+    - SliderImpl* ptr;
+}
+
+AbstractUIElement <|-- Slider
+
+class WindowBar {
+    + WindowBar(int x, int y, sf::RenderWindow& window, int buttonStart, std::string windowBar);
+    + ~WindowBar();
+    + void draw(sf::RenderWindow& window) override;
+    + void update(sf::RenderWindow& window) override;
+    + void handleEvents(sf::RenderWindow& window, sf::Event event) override;
+    + void show(bool show) override;
+    + void disable(bool disable) override;
+    + void reset() override;
+
+    + bool isClosePressed();
+    + bool isCollapsePressed();
+    + bool isDragged();
+    + int getWinX();
+    + int getWinY();
+
+
+    - BarImpl *pimpl;
+}
+
+AbstractUIElement <|-- WindowBar
+
+DropBox *-- CommentBox
+DropBox *-- Slider
+DropBox *-- Button
+
+EventWindow *-- WindowBar
+EventWindow *-- Slider
+
+class DisplayPoint2{
+    + int x, y;
+    + dataPoint data;
+}
+
+DisplayPoint2 *-- dataPoint
+
+EventWindow *-- DisplayPoint2
+
+MyWindow *-- EventWindow
+MyWindow *-- Button
+MyWindow *-- DropBox
+MyWindow *-- Clock
+MyWindow *- SimulatedTimeTracker
+MyWindow *-- WindowBar
+
+WindowBar *-- Button
+
+class DisplayPoint {
+    + int x, y;
+    + std::string name;
+    + bool active;
+}
+
+DropBox *-- DisplayPoint
+
+front_back_proxy --> "{uses}" TimeTracker_Singleton : <<getTracker()>>
+front_back_proxy --> "{uses}" longConverter : <<convertToLong()>>
+front_back_proxy --> "{uses}" Error_Singleton : <<clearError(), setError(), setException()>>
+MyWindow --> "{uses}" front_back_proxy : <<All methods in front_back_proxy>>
+MyWindow --> "{uses}" Error_Singleton : <<hasError(), hasException(), getError()>>
+
+@enduml

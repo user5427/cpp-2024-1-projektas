@@ -6,13 +6,24 @@
 - Tadas Riksas [user5427](https://github.com/user5427)
 - Arnas Šniokaitis
 
+### Darbo apimties ataskaitos
+Visos ataskaitos sudėtos į [Ataskaitos](Ataskaitos) katalogą.
+
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
 
 ## UI dalis. Front-end
-Realizuotas šitoks front-end.
-![Imgur](https://imgur.com/OQ6Rz9W.png)
-![Imgur](https://imgur.com/am4Z0vW.png)
+Realizuotas šitoks front-end (Tadas).
+
+[//]: # (![Imgur]&#40;https://imgur.com/OQ6Rz9W.png&#41;)
+[//]: # (![Imgur]&#40;https://imgur.com/am4Z0vW.png&#41;)
+![Imgur](https://imgur.com/u0nKXPQ.gif)
+
+[Klasės diagrama](https://imgur.com/mvluO30.png)
+![Imgur](https://imgur.com/mvluO30.png)
+Panaudotas **Singleton** patternas, kad būtų galima pasiekti duomenis iš bet kurios vietos.
+Panaudotas **Proxy** patternas, kad būtų galima pasiekti duomenis iš bet kurios vietos.
+
 
 ### Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, 
@@ -64,5 +75,4 @@ Deja, tikėtina, kad galėsime sukurti tik tokį interfeisą:
 ![Imgur](https://imgur.com/SO93aFm.png)
 
 
-## Darbo apimties ataskaitos
-Visos ataskaitos sudėtos į [Ataskaitos](Ataskaitos) katalogą.
+
