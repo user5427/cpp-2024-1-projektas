@@ -24,6 +24,8 @@ Realizuotas šitoks front-end (Tadas).
 Panaudotas **Singleton** patternas, kad būtų galima pasiekti duomenis iš bet kurios vietos.
 Panaudotas **Proxy** patternas, kad būtų galima pasiekti duomenis iš bet kurios vietos, papildomai sekant klaidas.
 
+## Backend
+.
 
 ### Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, 
