@@ -26,7 +26,7 @@ Panaudotas **Proxy** patternas, kad būtų galima pasiekti duomenis iš bet kuri
 
 ## Backend
 [//]: # (![Imgur]&#40;https://imgur.com/a/GjcRKUO;)
-![Imgur](https://imgur.com/a/GjcRKUO.png)
+![Imgur]([https://imgur.com/a/GjcRKUO.png](https://imgur.com/gallery/uml-d8mh2rh))
 
 ## Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, 
