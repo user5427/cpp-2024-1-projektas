@@ -1,0 +1,4 @@
+1) PDF sukurimas                23min.
+2) BackEnd                      4-5h.
+4) Ataskaita apie Backend       ~30min.
+5) Testu kurimas ir testavimas  53min.
