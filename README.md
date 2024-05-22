@@ -17,7 +17,7 @@ Tadas: 50% (Duokit daugiau, nes didelis front-end ir readme dideli, gražų suk�
 
 **Darbo apimtis** (apytiksliai):
 ![Imgur](https://imgur.com/x0l79AZ.png)
-Tadas - user5427: 4248 pridėjimai (eil.). 515 panaikinimai. Viso 4763 **pakeitimai**. ~ 21 **val.** darbo. **Pagrindinės užduotys**: readMe (P0), frontend (P2) sukūrimas, vadovavimas/patarimas ką backend'e reikia daryti/pakeisti.
+Tadas - user5427 4248 pridėjimai (eil.). 515 panaikinimai. Viso 4763 **pakeitimai**. ~ 21 **val.** darbo. **Pagrindinės užduotys**: readMe (P0), frontend (P2) sukūrimas, vadovavimas/patarimas ką backend'e reikia daryti/pakeisti.
 
 Arnas - TheBlueBrain 504 pridėjimai (eil.). 110 panaikinimai. Viso 614 **pakeitimai**. ~ 7 **val.** darbo. **Pagrindinės užduotys**: backend sukūrimas (P1).
 
