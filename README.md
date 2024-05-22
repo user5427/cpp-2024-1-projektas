@@ -9,6 +9,12 @@
 ### Darbo apimties ataskaitos
 Visos ataskaitos sudėtos į [Ataskaitos](Ataskaitos) katalogą.
 
+Pažymio pasiskirstymas:
+
+Arnas: 50%.
+
+Tadas: 50% (Duokit daugiau, nes didelis front-end ir readme gražų sukūrė).
+
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
 
@@ -26,7 +32,7 @@ Panaudotas **Proxy** patternas, kad būtų galima pasiekti duomenis iš bet kuri
 
 ## Backend
 [//]: # (![Imgur]&#40;https://imgur.com/a/GjcRKUO;)
-![Imgur](https://imgur.com/EOsMRaK.png)
+![Imgur](https://imgur.com/a/uml-d8mh2rh)
 
 ## Programos tikslas:
 Tai būtų tokia programa, su kuria galima sekti PSP veiklą žymiai lengviau, 
