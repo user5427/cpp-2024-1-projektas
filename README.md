@@ -13,7 +13,13 @@ Pažymio pasiskirstymas:
 
 Arnas: 50%.
 
-Tadas: 50% (Duokit daugiau, nes didelis front-end ir readme gražų sukūrė).
+Tadas: 50% (Duokit daugiau, nes didelis front-end ir readme gražų ir dideli sukūrė, didesnis darbo krūvis gavosi).
+
+**Darbo apimtis** (apytiksliai):
+![Imgur](https://imgur.com/x0l79AZ.png)
+Tadas - user5427: 4248 pridėjimai (eil.). 515 panaikinimai. Viso 4763 pakeitimai. ~ 21 val. darbo.
+
+Arnas - TheBlueBrain 504 pridėjimai (eil.). 110 panaikinimai. Viso 614 pakeitimai. ~ 7 val. darbo.
 
 ![Imgur](https://imgur.com/TyNHcmc.png)
 ## Laiko fiksavimo programa
